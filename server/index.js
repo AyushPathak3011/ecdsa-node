@@ -23,12 +23,15 @@ app.get("/balance/:address", (req, res) => {
 });
 
 app.post("/send", (req, res) => {
-  if (address == undefined || address == null) {
-    res
-      .status(400)
-      .send({ message: "No address provided, need to get balance first !" });
-  }
-  const { recipient, amount, signature, recoveryBit, publicKey } = req.body;
+  // if (address == undefined || address == null) {
+  //   res
+  //     .status(400)
+  //     .send({ message: "No address provided, need to get balance first !" });
+  // }
+  const { address, recipient, amount, signature, recoveryBit, publicKey } =
+    req.body;
+  console.log("Sender : ", address);
+
   console.log("Recipient : ", recipient);
   console.log("Amount : ", amount);
   console.log("Signature : ", signature);
